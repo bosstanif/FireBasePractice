@@ -5,5 +5,33 @@
         <title>Sample Page</title>
         <!-- firebaseに接続するスクリプトタグ -->
         <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase-app.js"></script>
+        <script>
+            let config = {
+                apiKey:"...APIキー...",
+                authDomain:"AUTHドメイン",
+                databaseURL:"データベース",
+                projectId:"プロジェクトID",
+                storageBucket:"ストレージ",
+                massagingSenderId:"メッセージID"
+            };
+            let fbase;
+            // 接続できなかった時用のエラーメッセージ処理トライキャッチ
+            try{
+                fbase = firebase.initializeApp(config);
+            }catch(e){
+                console.log(e);
+            }
+            // 取得した変数をコンソール表示
+            console.Log(fbase.name);
+        </script>
     </head>
+    <body>
+        <h1>Sample Page</h1>
+        <p>Firebase name:
+            <script>
+                // 25行目までに取得した名前を表示
+                document.write(fbase.name);
+            </script>
+        </p>
+    </body>
 </html>
