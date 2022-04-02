@@ -3,9 +3,10 @@
     <head>
         <meta charset="utf-8">
         <title>Sample Page</title>
-        <!-- firebaseに接続するスクリプトタグ -->
+        <!-- firebaseライブラリを読み込むスクリプトタグ -->
         <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase-app.js"></script>
         <script>
+            //利用するFireBaseプロジェクトの情報をまとめて引数に指定し変数configに代入する。
             let config = {
                 apiKey:"...APIキー...",
                 authDomain:"AUTHドメイン",
@@ -16,7 +17,8 @@
             };
             let fbase;
             // 接続できなかった時用のエラーメッセージ処理トライキャッチ
-            try{
+            try{//FireBaseオブジェクトを初期化してセットアップ
+                //例)変数 = firebase.initializeApp( 設定情報 );
                 fbase = firebase.initializeApp(config);
             }catch(e){
                 console.log(e);
